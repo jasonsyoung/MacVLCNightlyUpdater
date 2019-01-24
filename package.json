@@ -4,7 +4,8 @@
   "description": "Updates VLC to the nightly release everyday",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,13 +19,24 @@
   ],
   "author": "Jason Young <jason@jasonsyoung.com>",
   "license": "GPL-3.0-or-later",
+  "preferGlobal": true,
+  "bin": {
+    "vlc-nightly-updater": "./bin/vlc-nightly-updater.sh"
+  },
   "bugs": {
     "url": "https://github.com/jasonsyoung/MacVLCNightlyUpdater/issues"
   },
+  "files": [
+    "bin"
+  ],
   "homepage": "https://github.com/jasonsyoung/MacVLCNightlyUpdater#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "node-html-parser": "^1.1.11",
-    "node-notifier": "^5.3.0"
+    "dmg": "^0.1.0",
+    "follow-redirects": "^1.6.1",
+    "ncp": "^2.0.0",
+    "node-notifier": "^5.3.0",
+    "request": "^2.88.0",
+    "trash": "^4.3.0"
   }
 }
