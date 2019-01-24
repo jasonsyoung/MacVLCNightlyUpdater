@@ -135,7 +135,7 @@ function installUpdate(filePath) {
 }
 
 function installApp(mountedPath) {
-  ncp(mountedPath, APP_PATH, ncperr => {
+  ncp(path.join(mountedPath, 'VLC.app'), APP_PATH, ncperr => {
     if (ncperr) {
       error(`Failed copying app: ${ncperr.message}`)
     } else {
