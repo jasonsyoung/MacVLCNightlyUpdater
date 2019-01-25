@@ -1,2 +1,4 @@
 #!/usr/bin/env bash
-node ../index.js
+pushd $(dirname "$(\realpath "$0")") &>/dev/null
+npm start
+popd &>/dev/null
