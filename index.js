@@ -24,7 +24,11 @@ function error (msg) {
   notifier.notify({
     title: 'Error',
     message: msg,
-    sound: true
+    sound: true,
+    closeLabel: 'Close',
+    actions: 'Close',
+    wait: true,
+    icon: path.join(__dirname, 'assets', 'notifier-icon.png')
   })
 }
 
@@ -32,13 +36,19 @@ function success (msg, title=null) {
   console.log(title === null ? 'Success' : title, msg)
   const params = {
     message: msg,
-    sound: true
+    sound: false,
+    timeout: 15,
+    closeLabel: 'Close',
+    actions: 'Close',
+    icon: path.join(__dirname, 'assets', 'notifier-icon.png'),
   }
   if (title && typeof title === 'string') {
     params.title = title
   }
   notifier.notify(params)
 }
+
+success('Update started', 'VLC Nightly Updater')
 
 https.get(NIGHTLY_URL, res => {
   if (res.statusCode !== 200) {
@@ -114,7 +124,7 @@ function installUpdate(filePath) {
       if (fs.existsSync(APP_PATH)) {
         console.log(`Attempting to trash existing ${APP_PATH}`)
         trash([ APP_PATH ]).then(() => {
-          console.log('Trashed app, installing...')
+          console.log('Moving previous nightly app to trash, now installing new one...')
           installApp(mountedPath)
         }).catch(err => {
           error(`Failed trashing existing app: ${err.message}`)

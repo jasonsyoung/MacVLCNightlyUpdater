@@ -21,7 +21,7 @@
   "license": "GPL-3.0-or-later",
   "preferGlobal": true,
   "bin": {
-    "vlc-nightly-updater": "./bin/vlc-nightly-updater.sh"
+    "vlc-nightly-updater": "./vlc-nightly-updater.sh"
   },
   "bugs": {
     "url": "https://github.com/jasonsyoung/MacVLCNightlyUpdater/issues"
