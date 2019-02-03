@@ -142,7 +142,7 @@ function cleanup() {
     }
     if (backupExisting.backupPath && fs.existsSync(backupExisting.backupPath)) {
       rmdir(backupExisting.backupPath, err => {
-        error(`Failed deleting backup ${backupExisting.backupPath}: ${err.message}`)
+        error(`Failed deleting backup ${backupExisting.backupPath}: ${err}`)
       })
       if (installUpdate.mountedPath && installUpdate.devPath) {
         dmg.remove(installUpdate.mountedPath, installUpdate.devPath).then(s => {
