@@ -7,10 +7,10 @@ if (fs.statSync(__filename).isSymbolicLink()) {
     const projPath = path.resolve('..', realLink)
     const program = path.join(projPath, 'index.js')
 
-    require(program)(/-?-d(aemon)?/.test(process.argv[2], process.argv[3]))
+    require(program)(/-?-d(aemon)?/.test(process.argv[2]), process.argv[3])
 } else {
     const realPath = fs.realpathSync(__filename)
     const program = path.join(realPath, '..', 'index.js')
 
-    require(program)(/-?-d(aemon)?/.test(process.argv[2], process.argv[3]))
+    require(program)(/-?-d(aemon)?/.test(process.argv[2]), process.argv[3])
 }

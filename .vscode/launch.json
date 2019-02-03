@@ -4,6 +4,7 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "node",
             "request": "launch",
@@ -13,8 +14,16 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Link",
-            "program": "${workspaceFolder}/vlc-nightly-updater.sh"
+            "name": "Launch Link Start",
+            "program": "${workspaceFolder}/vlc-nightly-updater.sh",
+            "args": ["-d", "start"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Link Stop",
+            "program": "${workspaceFolder}/vlc-nightly-updater.sh",
+            "args": ["-d", "stop"]
         }
     ]
 }

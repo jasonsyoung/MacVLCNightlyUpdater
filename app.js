@@ -56,6 +56,7 @@ function update(daemonize = false) {
   }
 }
 
+message('Update started', 'VLC Nightly Updathjgkjer')
 function runUpdate() {
   message('Update started', 'VLC Nightly Updater')
 
