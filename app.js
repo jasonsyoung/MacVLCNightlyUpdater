@@ -108,6 +108,9 @@ function saveFile(file) {
         }
         process.stdout.write(`Downloaded ${percentDownloaded}%`)
         lastPrinted = percentDownloaded
+        if (lastPrinted === 100) {
+          process.stdout.write("\n")
+        }
       }
     })
 
@@ -141,10 +144,15 @@ function cleanup() {
     }
     if (backupExisting.backupPath && fs.existsSync(backupExisting.backupPath)) {
       rmdir(backupExisting.backupPath, err => {
-        error(`Failed deleting backup ${backupExisting.backupPath}: ${err}`)
+        if (err) {
+          error(`Failed deleting backup ${backupExisting.backupPath}: ${err}`)
+        } else {
+          console.log(`Successfully deleted backup ${backupExisting.backupPath}`)
+        }
       })
       if (installUpdate.mountedPath && installUpdate.devPath) {
         dmg.remove(installUpdate.mountedPath, installUpdate.devPath).then(s => {
+          console.info(`Successfully unmounted and ejected ${installUpdate.mountedPath}, ${installUpdate.devPath}`)
           resolve(s)
         }, err => {
           error(`Failed removing dmg: ${err.message}`)
