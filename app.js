@@ -56,7 +56,6 @@ function update(daemonize = false) {
   }
 }
 
-message('Update started', 'VLC Nightly Updathjgkjer')
 function runUpdate() {
   message('Update started', 'VLC Nightly Updater')
 
@@ -108,7 +107,6 @@ function saveFile(file) {
           readline.cursorTo(process.stdout, 0)
         }
         process.stdout.write(`Downloaded ${percentDownloaded}%`)
-        console.log(`Downloaded ${percentDownloaded}%`)
         lastPrinted = percentDownloaded
       }
     })
