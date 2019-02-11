@@ -1,6 +1,6 @@
 {
   "name": "vlc-nightly-updater-mac",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Updates VLC to the nightly release everyday",
   "main": "app.js",
   "scripts": {
@@ -35,9 +35,9 @@
     "daemonize2": "^0.4.2",
     "follow-redirects": "^1.6.1",
     "ncp": "^2.0.0",
-    "node-notifier": "^5.3.0",
+    "node-notifier": "^5.4.0",
     "node-schedule": "^1.3.1",
     "request": "^2.88.0",
-    "rmdir": "^1.2.0"
+    "rmdir": "jasonsyoung/node.rmdir"
   }
 }
